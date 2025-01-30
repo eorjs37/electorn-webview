@@ -1,15 +1,46 @@
 {
   "name": "electorn-vite",
   "private": true,
+  "main": "electron/main.js",
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
+    "electron": "nodemon --exec electron .",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ele-build": "tsc && vite build && electron-builder"
   },
   "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8",
+    "nodemon": "^3.1.9",
     "typescript": "~5.6.2",
     "vite": "^6.0.5"
+  },
+  "build": {
+    "appId": "com.maxgun.electronwebview",
+    "productName": "ElectronWebView",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "icon": "assets/icons/vite.svg",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "assets/icons/vite.svg",
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
   }
 }
