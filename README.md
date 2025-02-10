@@ -7,3 +7,9 @@
 ```
 npx electron-vite
 ```
+
+### build
+
+```
+npx electron-builder --win --ia32 --x64
+```

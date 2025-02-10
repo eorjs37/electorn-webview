@@ -8,6 +8,9 @@
     "electron": "nodemon --exec electron .",
     "build": "tsc && vite build",
     "build:mac": "electron-builder --mac",
+    "build:win32": "electron-builder --win --ia32",
+    "build:win64": "electron-builder --win --x64",
+    "build:win": "electron-builder --win --ia32 --x64",
     "preview": "vite preview",
     "ele-build": "tsc && vite build && electron-builder"
   },
@@ -17,5 +20,15 @@
     "nodemon": "^3.1.9",
     "typescript": "~5.6.2",
     "vite": "^6.0.5"
+  },
+  "build": {
+    "appId": "com.example.yourapp",
+    "productName": "ElectronApp",
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
   }
 }
