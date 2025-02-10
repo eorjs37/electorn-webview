@@ -1,5 +1,10 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
+const AutoLaunch = require("auto-launch");
+
+const autoLauncher = new AutoLaunch({
+  name: "ElectronApp",
+});
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -23,6 +28,17 @@ app.whenReady().then(() => {
 
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
+
+    autoLauncher
+      .isEnabled()
+      .then((isEnabled) => {
+        if (!isEnabled) {
+          return autoLauncher.enable();
+        }
+      })
+      .catch((err) => {
+        console.error("자동 시작 설정 실패:", err);
+      });
   });
 });
 

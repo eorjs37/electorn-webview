@@ -25,18 +25,20 @@
     "appId": "com.example.yourapp",
     "productName": "ElectronApp",
     "win": {
-      "target": "nsis",
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "requestedExecutionLevel": "requireAdministrator"
+      "target": "nsis"
     },
     "nsis": {
       "oneClick": true,
       "perMachine": true,
-      "allowElevation": false
+      "allowElevation": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     },
     "mac": {
       "target": "dmg"
     }
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.6"
   }
 }
