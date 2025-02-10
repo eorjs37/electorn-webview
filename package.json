@@ -27,14 +27,13 @@
     "win": {
       "target": "nsis",
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "createStartMenuShortcut": true,
+      "requestedExecutionLevel": "requireAdministrator"
     },
     "nsis": {
       "oneClick": true,
       "perMachine": true,
-      "allowElevation": false,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "allowElevation": false
     },
     "mac": {
       "target": "dmg"
