@@ -19,8 +19,14 @@ function createWindow() {
   win.webContents.setUserAgent("APLAYZ PoS");
   //user agent
   session.defaultSession.setUserAgent("APLAYZ PoS");
+
   // Vite 개발 서버 사용
   win.loadURL("https://www.aplayz.co.kr");
+
+  win.on("close", (event) => {
+    event.preventDefault();
+    win.hide();
+  });
 
   // 개발자 도구 열기
   //win.webContents.openDevTools();
